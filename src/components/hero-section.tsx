@@ -59,7 +59,7 @@ const HeroSection = (): ReactElement => {
 
             {/* Right - Image */}
             <Image
-                className="hidden lg:block border border-border rounded-2xl mask-r-from-50% mask-r-to-90%"
+                className="hidden lg:block border border-border rounded-2xl mask-r-from-50% mask-r-to-85%"
                 src="/media/hero-section.webp"
                 alt="Hero Section"
                 width={512}
