@@ -8,6 +8,7 @@ import { env } from "~/lib/env";
 import { cn } from "~/lib/utils";
 import { AppProvider } from "~/providers/app-provider";
 import "./styles/globals.css";
+import Footer from "~/components/footer";
 
 export const metadata: Metadata = {
     title: {
@@ -51,9 +52,11 @@ const RootLayout = ({
                 defer
             />
             <AppProvider>
-                <Navbar />
-                {children}
-                <div className="h-[403rem]" />
+                <div className="px-5">
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </div>
             </AppProvider>
         </body>
     </html>
