@@ -15,7 +15,7 @@ const Navbar = (): ReactElement => {
     const [hasScrolled, setHasScrolled] = useState(false);
     const { data: stars, isLoading } = useGithubStars(
         "Rainnny7",
-        "www-litebans"
+        "schedule-one-editor"
     );
 
     useEffect(() => {

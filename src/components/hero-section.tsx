@@ -40,14 +40,20 @@ const HeroSection = (): ReactElement => {
 
                 {/* Buttons */}
                 <motion.div
-                    className="mt-4 flex gap-3 items-center"
+                    className="mt-4 flex gap-3 items-center relative"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
+                    {/* Radial gradient background */}
+                    <div className="absolute -left-28 -inset-y-40 w-[32rem] bg-radial-[at_center] from-muted-foreground/10 via-transparent to-transparent blur-md rounded-full opacity-50 -z-10" />
+
                     {/* Upload Save */}
                     <Link href="/#upload" draggable={false}>
-                        <Button className="group rounded-lg" size="lg">
+                        <Button
+                            className="group rounded-lg border border-green-800"
+                            size="lg"
+                        >
                             Upload Save
                             <AnimatedRightChevron />
                         </Button>
@@ -73,10 +79,14 @@ const HeroSection = (): ReactElement => {
 
             {/* Right - Image */}
             <motion.div
+                className="relative"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
             >
+                {/* Radial gradient background */}
+                <div className="absolute -left-64 -bottom-64 w-[40rem] h-[40rem] bg-radial-[at_center] from-muted-foreground/10 via-transparent to-transparent blur-md rounded-full opacity-50 -z-10" />
+
                 <Image
                     className="hidden lg:block border border-border rounded-2xl mask-r-from-50% mask-r-to-85%"
                     src="/media/hero-section.webp"
