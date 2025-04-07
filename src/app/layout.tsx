@@ -3,12 +3,12 @@ import { NextFont } from "next/dist/compiled/@next/font";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { ReactNode } from "react";
+import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
 import { env } from "~/lib/env";
 import { cn } from "~/lib/utils";
 import { AppProvider } from "~/providers/app-provider";
 import "./styles/globals.css";
-import Footer from "~/components/footer";
 
 export const metadata: Metadata = {
     title: {
