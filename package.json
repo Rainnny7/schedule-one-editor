@@ -15,6 +15,7 @@
         "prettier": "bunx prettier -w --config ./.prettierrc ."
     },
     "dependencies": {
+        "@radix-ui/react-dialog": "^1.1.6",
         "@radix-ui/react-separator": "^1.1.2",
         "@radix-ui/react-slot": "^1.1.2",
         "@t3-oss/env-nextjs": "^0.12.0",
