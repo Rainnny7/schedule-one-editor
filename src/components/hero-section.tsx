@@ -98,16 +98,20 @@ const HeroSection = (): ReactElement => (
 
         {/* Scroll Indicator */}
         <motion.div
-            className="absolute inset-x-0 bottom-24 flex flex-col gap-4 justify-center items-center text-muted-foreground"
+            className="absolute inset-x-0 bottom-24 flex justify-center text-muted-foreground"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
         >
-            <Mouse className="size-4" />
-            <ArrowDown className="size-4 animate-bounce" />
+            <Link
+                className="w-fit flex flex-col gap-4 justify-center items-center hover:opacity-75 transition-opacity transform-gpu"
+                href="/#upload"
+                draggable={false}
+            >
+                <Mouse className="size-4" />
+                <ArrowDown className="size-4 animate-bounce" />
+            </Link>
         </motion.div>
-
-        {/* Bottom Radial Gradient */}
     </div>
 );
 export default HeroSection;
