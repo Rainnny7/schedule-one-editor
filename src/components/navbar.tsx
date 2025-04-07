@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,44 +35,62 @@ const Navbar = (): ReactElement => {
             )}
         >
             {/* Left - Logo */}
-            <Link
-                className="flex gap-2.5 items-center hover:opacity-75 transition-opacity transform-gpu"
-                href="/"
-                draggable={false}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
             >
-                <Image
-                    src="/media/logo.png"
-                    alt="Schedule I Editor"
-                    width={28}
-                    height={28}
-                />
-                <span className="font-bold">Schedule I Editor</span>
-            </Link>
+                <Link
+                    className="flex gap-2.5 items-center hover:opacity-75 transition-opacity transform-gpu"
+                    href="/"
+                    draggable={false}
+                >
+                    <Image
+                        src="/media/logo.png"
+                        alt="Schedule I Editor"
+                        width={28}
+                        height={28}
+                    />
+                    <span className="font-bold">Schedule I Editor</span>
+                </Link>
+            </motion.div>
 
             {/* Right - Links */}
             <div className="flex gap-4 items-center">
                 {/* GitHub */}
-                <Link
-                    className="flex gap-1.5 items-center font-medium hover:opacity-75 transition-opacity transform-gpu"
-                    href="https://github.com/Rainnny7/schedule-one-editor"
-                    target="_blank"
-                    draggable={false}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                    <Github className="size-4" />
-                    {isLoading ? (
-                        <Skeleton className="px-1.5 py-2 rounded-full" />
-                    ) : (
-                        <span>{stars}</span>
-                    )}
-                </Link>
+                    <Link
+                        className="flex gap-1.5 items-center font-medium hover:opacity-75 transition-opacity transform-gpu"
+                        href="https://github.com/Rainnny7/schedule-one-editor"
+                        target="_blank"
+                        draggable={false}
+                    >
+                        <Github className="size-4" />
+                        {isLoading ? (
+                            <Skeleton className="px-1.5 py-2 rounded-full" />
+                        ) : (
+                            <span>{stars}</span>
+                        )}
+                    </Link>
+                </motion.div>
 
                 {/* Try It Out */}
-                <Link href="/#upload">
-                    <Button className="group rounded-full" size="sm">
-                        Try It Out
-                        <AnimatedRightChevron />
-                    </Button>
-                </Link>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                >
+                    <Link href="/#upload">
+                        <Button className="group rounded-full" size="sm">
+                            Try It Out
+                            <AnimatedRightChevron />
+                        </Button>
+                    </Link>
+                </motion.div>
             </div>
         </nav>
     );

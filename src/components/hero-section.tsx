@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,26 +14,37 @@ const HeroSection = (): ReactElement => {
         <div className="min-h-screen flex gap-24 xl:gap-40 justify-center items-center transition-all transform-gpu">
             {/* Left - Text */}
             <div className="flex flex-col gap-2.5">
-                <h1
+                <motion.h1
                     className={cn(
-                        "text-4xl xl:text-5xl 2xl:text-6xl font-bold transition-all transform-gpu",
+                        "text-4xl xl:text-5xl 2xl:text-6xl font-bold",
                         "text-clip text-transparent bg-clip-text bg-gradient-to-r from-white/90 to-white/65"
                     )}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
                 >
                     Schedule I Save Editor
-                </h1>
-                <p
+                </motion.h1>
+                <motion.p
                     className={cn(
-                        "max-w-xl text-lg 2xl:text-2xl transition-all transform-gpu",
+                        "max-w-xl text-lg 2xl:text-2xl",
                         "text-clip text-transparent bg-clip-text bg-gradient-to-r from-muted-foreground/90 to-muted-foreground/75"
                     )}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     Upload, view, and modify your game save files with ease with
                     our simple to use, open-source editor.
-                </p>
+                </motion.p>
 
                 {/* Buttons */}
-                <div className="mt-3 flex gap-3 items-center">
+                <motion.div
+                    className="mt-4 flex gap-3 items-center"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                >
                     {/* Upload Save */}
                     <Link href="/#upload" draggable={false}>
                         <Button className="group rounded-lg" size="lg">
@@ -54,18 +68,24 @@ const HeroSection = (): ReactElement => {
                             View Source
                         </Button>
                     </Link>
-                </div>
+                </motion.div>
             </div>
 
             {/* Right - Image */}
-            <Image
-                className="hidden lg:block border border-border rounded-2xl mask-r-from-50% mask-r-to-85%"
-                src="/media/hero-section.webp"
-                alt="Hero Section"
-                width={512}
-                height={290}
-                draggable={false}
-            />
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+            >
+                <Image
+                    className="hidden lg:block border border-border rounded-2xl mask-r-from-50% mask-r-to-85%"
+                    src="/media/hero-section.webp"
+                    alt="Hero Section"
+                    width={512}
+                    height={290}
+                    draggable={false}
+                />
+            </motion.div>
         </div>
     );
 };
