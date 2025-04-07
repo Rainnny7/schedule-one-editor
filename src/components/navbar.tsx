@@ -31,7 +31,7 @@ const Navbar = (): ReactElement => {
             className={cn(
                 "fixed inset-x-0 top-0 p-4 flex justify-between items-center transition-all transform-gpu z-50",
                 hasScrolled &&
-                    "bg-black/25 backdrop-blur-sm border-b border-border"
+                    "bg-black/15 backdrop-blur-sm border-b border-border"
             )}
         >
             {/* Left - Logo */}
