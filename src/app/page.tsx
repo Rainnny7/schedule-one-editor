@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import HeroSection from "~/components/hero-section";
+import HeroSection from "~/components/landing/hero-section";
 import { Separator } from "~/components/ui/separator";
 
 const LandingPage = (): ReactElement => (

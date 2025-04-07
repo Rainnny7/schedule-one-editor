@@ -36,8 +36,8 @@ const getMugshots = (): string[] => {
 };
 
 const getRandomMugshot = (): string => {
-    const mugshots = getMugshots();
-    const randomIndex = Math.floor(Math.random() * mugshots.length);
+    const mugshots: string[] = getMugshots();
+    const randomIndex: number = Math.floor(Math.random() * mugshots.length);
     return mugshots[randomIndex];
 };
 
