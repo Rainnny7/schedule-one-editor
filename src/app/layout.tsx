@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { NextFont } from "next/dist/compiled/@next/font";
 import localFont from "next/font/local";
-import { ThemeProvider } from "~/components/theme-provider";
+import Script from "next/script";
+import { ReactNode } from "react";
+import Navbar from "~/components/navbar";
+import { env } from "~/lib/env";
+import { cn } from "~/lib/utils";
+import { AppProvider } from "~/providers/app-provider";
 import "./styles/globals.css";
 
 export const metadata: Metadata = {
@@ -31,20 +36,26 @@ const satoshi: NextFont = localFont({
 const RootLayout = ({
     children,
 }: Readonly<{
-    children: React.ReactNode;
-}>) => {
-    return (
-        <html lang="en" suppressHydrationWarning>
-            <body className={`${satoshi.className} antialiased`}>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
-                >
-                    {children}
-                </ThemeProvider>
-            </body>
-        </html>
-    );
-};
+    children: ReactNode;
+}>) => (
+    <html lang="en" suppressHydrationWarning>
+        <body
+            className={cn(
+                "antialiased scroll-smooth select-none",
+                satoshi.className
+            )}
+        >
+            <Script
+                src={`${env.ANALYTICS_HOST}/script.js`}
+                data-website-id={env.ANALYTICS_ID}
+                defer
+            />
+            <AppProvider>
+                <Navbar />
+                {children}
+                <div className="h-[403rem]" />
+            </AppProvider>
+        </body>
+    </html>
+);
 export default RootLayout;
