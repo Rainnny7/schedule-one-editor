@@ -79,7 +79,7 @@ const HeroSection = (): ReactElement => {
 
             {/* Right - Image */}
             <motion.div
-                className="relative"
+                className="hidden lg:block relative"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
@@ -88,7 +88,7 @@ const HeroSection = (): ReactElement => {
                 <div className="absolute -left-64 -bottom-64 w-[40rem] h-[40rem] bg-radial-[at_center] from-muted-foreground/10 via-transparent to-transparent blur-md rounded-full opacity-50 -z-10" />
 
                 <Image
-                    className="hidden lg:block border border-border rounded-2xl mask-r-from-50% mask-r-to-85%"
+                    className="border border-border rounded-2xl mask-r-from-50% mask-r-to-85%"
                     src="/media/hero-section.webp"
                     alt="Hero Section"
                     width={512}

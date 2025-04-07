@@ -6,7 +6,7 @@ import { ReactElement } from "react";
 
 const Footer = (): ReactElement => (
     <motion.footer
-        className="fixed inset-x-0 bottom-3.5 w-fit mx-auto px-3 py-1.5 text-sm font-light bg-black/25 backdrop-blur-sm border border-border rounded-full"
+        className="fixed inset-x-0 bottom-4 w-fit mx-auto px-3 py-1.5 text-sm font-light bg-black/25 backdrop-blur-sm border border-border rounded-full"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.35 }}
