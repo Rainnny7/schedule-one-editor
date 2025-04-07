@@ -11,7 +11,7 @@ import { StarsBackground } from "~/components/ui/stars-background";
 import { cn } from "~/lib/utils";
 
 const HeroSection = (): ReactElement => (
-    <div className="relative min-h-screen flex gap-24 xl:gap-40 justify-center items-center transition-all transform-gpu">
+    <section className="mx-auto max-w-screen-2xl relative min-h-screen flex gap-24 xl:gap-40 justify-between items-center transition-all transform-gpu">
         {/* Stars Background */}
         <StarsBackground className="opacity-40" />
 
@@ -112,6 +112,6 @@ const HeroSection = (): ReactElement => (
                 <ArrowDown className="size-4 animate-bounce" />
             </Link>
         </motion.div>
-    </div>
+    </section>
 );
 export default HeroSection;
