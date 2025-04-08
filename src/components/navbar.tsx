@@ -42,7 +42,7 @@ const Navbar = (): ReactElement => {
                 className="flex gap-4 items-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, delay: 0.15 }}
             >
                 <Link
                     className="flex gap-2.5 items-center hover:opacity-75 transition-opacity transform-gpu"
@@ -73,7 +73,7 @@ const Navbar = (): ReactElement => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
+                    transition={{ duration: 0.3, delay: 0.25 }}
                 >
                     <SimpleTooltip content="Star on GitHub <3" side="bottom">
                         <Link
@@ -96,7 +96,7 @@ const Navbar = (): ReactElement => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
+                    transition={{ duration: 0.3, delay: 0.35 }}
                 >
                     <Link href="/#upload">
                         <Button className="group rounded-full" size="sm">
