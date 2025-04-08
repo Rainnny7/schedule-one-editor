@@ -23,6 +23,7 @@ const Navbar = (): ReactElement => {
         const handleScroll = () => {
             setHasScrolled(window.scrollY > 10);
         };
+        handleScroll(); // Check scroll position on mount
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
