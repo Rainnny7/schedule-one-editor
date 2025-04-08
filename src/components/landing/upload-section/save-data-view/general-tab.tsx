@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ChangeEvent, ReactElement } from "react";
 import DataField from "~/components/landing/upload-section/save-data-view/data-field";
 import DataSection, {
     SubDataSection,
@@ -7,49 +7,74 @@ import { Input } from "~/components/ui/input";
 import { Switch } from "~/components/ui/switch";
 import { GameSaveData } from "~/types/save";
 
-const GeneralTab = ({ data }: { data: GameSaveData }): ReactElement => (
-    <div className="space-y-3">
-        {/* Game Information */}
-        <DataSection title="Game Information">
-            {/* Organization Name */}
-            <DataField
-                label="Organization Name"
-                details="The name of your organization"
-            >
-                <Input
-                    name="orgName"
-                    type="text"
-                    placeholder="My Cool Organization"
-                    defaultValue={data.game.OrganisationName}
-                />
-            </DataField>
+const GeneralTab = ({
+    data,
+    onFieldChange,
+}: {
+    data: GameSaveData;
+    onFieldChange: (field: string, value: any) => void;
+}): ReactElement => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value, type } = event.target;
+        onFieldChange(name, type === "number" ? Number(value) : value);
+    };
 
-            {/* Seed */}
-            <DataField
-                label="Seed"
-                details="The seed used to generate random events"
-            >
-                <Input
-                    name="seed"
-                    type="number"
-                    placeholder="1234567890"
-                    defaultValue={data.game.Seed}
-                />
-            </DataField>
+    const handleSwitchChange = (name: string, checked: boolean) => {
+        onFieldChange(name, checked);
+    };
 
-            {/* Settings */}
-            <SubDataSection title="Settings">
+    return (
+        <div className="space-y-3">
+            {/* Game Information */}
+            <DataSection title="Game Information">
+                {/* Organization Name */}
                 <DataField
-                    label="Console Enabled"
-                    details="Whether the debug console is enabled"
+                    label="Organization Name"
+                    details="The name of your organization"
                 >
-                    <Switch
-                        name="consoleEnabled"
-                        defaultChecked={data.game.Settings.ConsoleEnabled}
+                    <Input
+                        name="game.OrganisationName"
+                        type="text"
+                        placeholder="My Cool Organization"
+                        defaultValue={data.game.OrganisationName}
+                        onChange={handleInputChange}
                     />
                 </DataField>
-            </SubDataSection>
-        </DataSection>
-    </div>
-);
+
+                {/* Seed */}
+                <DataField
+                    label="Seed"
+                    details="The seed used to generate random events"
+                >
+                    <Input
+                        name="game.Seed"
+                        type="number"
+                        placeholder="1234567890"
+                        defaultValue={data.game.Seed}
+                        onChange={handleInputChange}
+                    />
+                </DataField>
+
+                {/* Settings */}
+                <SubDataSection title="Settings">
+                    <DataField
+                        label="Console Enabled"
+                        details="Whether the debug console is enabled"
+                    >
+                        <Switch
+                            defaultChecked={data.game.Settings.ConsoleEnabled}
+                            onCheckedChange={(checked: boolean) =>
+                                handleSwitchChange(
+                                    "game.Settings.ConsoleEnabled",
+                                    checked
+                                )
+                            }
+                        />
+                    </DataField>
+                </SubDataSection>
+            </DataSection>
+        </div>
+    );
+};
+
 export default GeneralTab;
