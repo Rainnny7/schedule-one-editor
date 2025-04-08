@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="public/media/logo.png" alt="Schedule One Editor Logo" width="200"/>
+    <img src="public/media/logo.png" alt="Schedule One Editor Logo" width="96"/>
 </div>
 
 # Schedule One Editor 🌿
