@@ -15,8 +15,9 @@ A modern web-based save editor for the Schedule I game, built with 💚, Next.js
 -   🔒 Secure file handling
 
 ## Preview
+
 ![Landing](https://cdn.rainnny.club/JaGDFg8e.webp)
-![Uploading Save Data](https://cdn.rainnny.club/bqcGq6rn.mp4)
+![Uploading Save Data](https://cdn.rainnny.club/UQLwFEeh.gif)
 
 ## Prerequisites
 
