@@ -6,14 +6,18 @@ import {
     useCallback,
     useState,
 } from "react";
+import KeyboardShortcut from "~/components/keyboard-shortcut";
 import { Button } from "~/components/ui/button";
 import {
     Dialog,
+    DialogClose,
     DialogContent,
+    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "~/components/ui/dialog";
+import { Separator } from "~/components/ui/separator";
 import { cn } from "~/lib/utils";
 
 const Dropzone = ({
@@ -117,8 +121,40 @@ const GetSaveTutorial = (): ReactElement => (
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>How do I get my Schedule I save?</DialogTitle>
+                <DialogDescription>
+                    Below is a guide on how to obtain your save data from your
+                    game
+                </DialogDescription>
             </DialogHeader>
-            Hello World
+            <Separator />
+
+            {/* Steps */}
+            <ul className="space-y-1 text-sm text-muted-foreground">
+                <li>
+                    1. Open the run dialog with{" "}
+                    <KeyboardShortcut shortcut="R" /> and navigate to{" "}
+                    <code className="text-foreground/80">%appdata%</code>
+                </li>
+                <li>
+                    2. Navigate back a directory to{" "}
+                    <code className="text-foreground/80">AppData</code> and then
+                    open{" "}
+                    <code className="text-foreground/80">
+                        LocalLow/TVGS/Schedule
+                        I/Saves/[steamId]/SaveGame_[number]
+                    </code>
+                </li>
+                <li>
+                    3. Create a ZIP file with the contents of the folder and
+                    upload it below
+                </li>
+            </ul>
+
+            <DialogClose asChild>
+                <Button className="mt-1" size="sm" variant="outline">
+                    Got It!
+                </Button>
+            </DialogClose>
         </DialogContent>
     </Dialog>
 );

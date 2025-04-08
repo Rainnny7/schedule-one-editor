@@ -62,9 +62,14 @@ const Navbar = (): ReactElement => {
                 </Link>
 
                 {/* Beta Badge */}
-                <Badge className="h-5 text-xs bg-card" variant="outline">
-                    Beta
-                </Badge>
+                <SimpleTooltip
+                    content="This editor is still in beta, please report any bugs on GitHub!"
+                    side="bottom"
+                >
+                    <Badge className="h-5 text-xs bg-card" variant="outline">
+                        Beta
+                    </Badge>
+                </SimpleTooltip>
             </motion.div>
 
             {/* Right - Links */}
