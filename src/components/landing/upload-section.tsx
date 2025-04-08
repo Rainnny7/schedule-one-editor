@@ -9,6 +9,7 @@ import {
     useCallback,
     useState,
 } from "react";
+import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
 import {
     Dialog,
@@ -33,13 +34,19 @@ const UploadSection = (): ReactElement => {
         setError(undefined);
         console.debug("Uploading save file...", file);
         try {
-            setSaveData(await processSaveFile(file));
+            const processedData = await processSaveFile(file);
+            setSaveData(processedData);
+            toast.promise(Promise.resolve(processedData), {
+                loading: "Uploading your save file...",
+                success: "Successfully uploaded save file!",
+            });
             console.debug("Save file processed successfully");
         } catch (err) {
             console.debug("Error processing save file:", err);
             setError(
                 err instanceof Error ? err.message : "An unknown error occurred"
             );
+            toast.error("Error uploading save file");
             setSaveData(undefined);
         } finally {
             setIsLoading(false);

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactElement, useEffect, useState } from "react";
 import AnimatedRightChevron from "~/components/animated-right-chevron";
+import SimpleTooltip from "~/components/simple-tooltip";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Skeleton } from "~/components/ui/skeleton";
@@ -74,19 +75,21 @@ const Navbar = (): ReactElement => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                    <Link
-                        className="flex gap-1.5 items-center font-medium hover:opacity-75 transition-opacity transform-gpu"
-                        href="https://github.com/Rainnny7/schedule-one-editor"
-                        target="_blank"
-                        draggable={false}
-                    >
-                        <Github className="size-4" />
-                        {isLoading ? (
-                            <Skeleton className="px-1.5 py-2 rounded-full" />
-                        ) : (
-                            <span>{stars}</span>
-                        )}
-                    </Link>
+                    <SimpleTooltip content="Star on GitHub <3" side="bottom">
+                        <Link
+                            className="flex gap-1.5 items-center font-medium hover:opacity-75 transition-opacity transform-gpu"
+                            href="https://github.com/Rainnny7/schedule-one-editor"
+                            target="_blank"
+                            draggable={false}
+                        >
+                            <Github className="size-4" />
+                            {isLoading ? (
+                                <Skeleton className="px-1.5 py-2 rounded-full" />
+                            ) : (
+                                <span>{stars}</span>
+                            )}
+                        </Link>
+                    </SimpleTooltip>
                 </motion.div>
 
                 {/* Try It Out */}
