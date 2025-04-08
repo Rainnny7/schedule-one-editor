@@ -3,6 +3,7 @@ import DataField from "~/components/landing/upload-section/save-data-view/data-f
 import DataSection, {
     SubDataSection,
 } from "~/components/landing/upload-section/save-data-view/data-section";
+import CalendarPopover from "~/components/ui/calendar-popover";
 import { Input } from "~/components/ui/input";
 import { Switch } from "~/components/ui/switch";
 import { GameSaveData } from "~/types/save";
@@ -72,6 +73,78 @@ const GeneralTab = ({
                         />
                     </DataField>
                 </SubDataSection>
+            </DataSection>
+
+            {/* Metadata */}
+            <DataSection title="Save Metadata">
+                {/* Play Tutorial */}
+                <DataField
+                    label="Play Tutorial"
+                    details="Whether the tutorial should be played upon loading the save"
+                >
+                    <Switch
+                        defaultChecked={data.metadata.PlayTutorial}
+                        onCheckedChange={(checked: boolean) =>
+                            handleSwitchChange(
+                                "metadata.PlayTutorial",
+                                checked
+                            )
+                        }
+                    />
+                </DataField>
+
+                {/* Last Save Version */}
+                <DataField
+                    label="Last Save Version"
+                    details="The version of the game that last saved the save"
+                >
+                    <Input
+                        name="metadata.LastSaveVersion"
+                        type="text"
+                        defaultValue={data.metadata.LastSaveVersion}
+                        onChange={handleInputChange}
+                    />
+                </DataField>
+
+                {/* Creation Version */}
+                <DataField
+                    label="Creation Version"
+                    details="The version of the game that created the save"
+                >
+                    <Input
+                        name="metadata.CreationVersion"
+                        type="text"
+                        defaultValue={data.metadata.CreationVersion}
+                        onChange={handleInputChange}
+                    />
+                </DataField>
+
+                {/* Last Played Date    */}
+                <DataField
+                    label="Last Played Date"
+                    details="The date and time when the save was last played"
+                >
+                    <CalendarPopover
+                        date={data.metadata.LastPlayedDate}
+                        onDateChange={(date: Date | undefined) =>
+                            date &&
+                            onFieldChange("metadata.LastPlayedDate", date)
+                        }
+                    />
+                </DataField>
+
+                {/* Creation Date */}
+                <DataField
+                    label="Creation Date"
+                    details="The date and time when the save was created"
+                >
+                    <CalendarPopover
+                        date={data.metadata.CreationDate}
+                        onDateChange={(date: Date | undefined) =>
+                            date && onFieldChange("metadata.CreationDate", date)
+                        }
+                    />
+                </DataField>
             </DataSection>
         </div>
     );

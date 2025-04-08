@@ -37,7 +37,9 @@ export async function processSaveFile(file: File): Promise<GameSaveData> {
             ?.async("text");
         if (fileContent) {
             try {
-                saveData[key as keyof GameSaveData] = JSON.parse(fileContent);
+                saveData[key as keyof GameSaveData] = processDateTimeFields(
+                    JSON.parse(fileContent)
+                );
             } catch (error) {
                 console.error(`Error parsing ${path}:`, error);
                 throw new Error(`Failed to parse ${path}`);
@@ -47,5 +49,43 @@ export async function processSaveFile(file: File): Promise<GameSaveData> {
         }
     }
 
+    console.debug("Save data:", saveData);
     return saveData as GameSaveData;
+}
+
+/**
+ * Recursively processes an object to convert any DateTimeData fields into Date objects
+ */
+function processDateTimeFields(obj: any): any {
+    if (Array.isArray(obj)) {
+        return obj.map(processDateTimeFields);
+    }
+    if (obj && typeof obj === "object") {
+        if (obj.DataType === "DateTimeData") {
+            return parseDateTimeData(obj);
+        }
+        const result: any = {};
+        for (const [key, value] of Object.entries(obj)) {
+            result[key] = processDateTimeFields(value);
+        }
+        return result;
+    }
+    return obj;
+}
+
+/**
+ * Converts a DateTimeData object into a JavaScript Date object
+ */
+function parseDateTimeData(data: any): Date | any {
+    if (data && typeof data === "object" && data.DataType === "DateTimeData") {
+        return new Date(
+            data.Year,
+            data.Month - 1,
+            data.Day,
+            data.Hour,
+            data.Minute,
+            data.Second
+        );
+    }
+    return data;
 }
