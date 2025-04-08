@@ -62,7 +62,7 @@ The application will be available at `http://localhost:3000`.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a [Pull Request](/pulls).
+Contributions are welcome! Please feel free to submit a [Pull Request](https://github.com/Rainnny7/schedule-one-editor/pulls).
 
 ## License
 
