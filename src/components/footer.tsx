@@ -17,7 +17,7 @@ const Footer = (): ReactElement => (
             href="https://github.com/Rainnny7"
             target="_blank"
         >
-            Rainnny7
+            Rainnny
         </Link>
     </motion.footer>
 );
