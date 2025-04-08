@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactElement, useEffect, useState } from "react";
 import AnimatedRightChevron from "~/components/animated-right-chevron";
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Skeleton } from "~/components/ui/skeleton";
 import { useGithubStars } from "~/hooks/use-github-stars";
@@ -36,6 +37,7 @@ const Navbar = (): ReactElement => {
         >
             {/* Left - Logo */}
             <motion.div
+                className="flex gap-4 items-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
@@ -51,8 +53,16 @@ const Navbar = (): ReactElement => {
                         width={28}
                         height={28}
                     />
-                    <span className="font-bold">Schedule I Editor</span>
+                    <span className="flex gap-1 items-center font-bold">
+                        <span className="hidden xs:block">Schedule I</span>{" "}
+                        Editor
+                    </span>
                 </Link>
+
+                {/* Beta Badge */}
+                <Badge className="h-5 text-xs bg-card" variant="outline">
+                    Beta
+                </Badge>
             </motion.div>
 
             {/* Right - Links */}
