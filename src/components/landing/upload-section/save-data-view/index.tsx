@@ -53,7 +53,7 @@ const SaveDataView = ({
                 ))}
             </TabsList>
             {tabs.map((tab) => (
-                <TabsContent key={tab.value} value={tab.value}>
+                <TabsContent key={tab.value} className="mt-1" value={tab.value}>
                     {tab.component(saveData)}
                 </TabsContent>
             ))}

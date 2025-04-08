@@ -54,7 +54,7 @@ const UploadSection = (): ReactElement => {
     return (
         <motion.section
             id="upload"
-            className="relative flex h-[40rem] w-full items-center justify-center bg-background"
+            className="relative py-16 flex min-h-[40rem] w-full items-center justify-center bg-background"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

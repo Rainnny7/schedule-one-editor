@@ -1,4 +1,4 @@
-import { Upload } from "lucide-react";
+import { FileUp } from "lucide-react";
 import {
     ChangeEvent,
     DragEvent,
@@ -91,7 +91,7 @@ const Dropzone = ({
                 </div>
             ) : (
                 <>
-                    <Upload className="size-6 group-hover:-translate-y-0.5 duration-300 transition-transform transform-gpu" />
+                    <FileUp className="size-6 group-hover:-translate-y-0.5 duration-300 transition-transform transform-gpu" />
                     <span>
                         {isDragging
                             ? "Drop your save file here"
@@ -132,7 +132,7 @@ const GetSaveTutorial = (): ReactElement => (
             <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>
                     1. Open the run dialog with{" "}
-                    <KeyboardShortcut shortcut="R" /> and navigate to{" "}
+                    <KeyboardShortcut shortcut="WIN + R" /> and navigate to{" "}
                     <code className="text-foreground/80">%appdata%</code>
                 </li>
                 <li>
