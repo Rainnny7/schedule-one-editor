@@ -72,7 +72,7 @@ const UploadSection = (): ReactElement => {
             <div className="absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)] bg-background pointer-events-none" />
 
             {/* Content */}
-            <div className="relative flex flex-col gap-8 justify-center items-center z-20">
+            <div className="w-full max-w-[50rem] relative flex flex-col gap-8 justify-center items-center z-20">
                 <h1 className="text-3xl font-bold">
                     {saveData ? "Viewing" : "Uploading"} your Save
                 </h1>
@@ -142,7 +142,7 @@ const Dropzone = ({
         <label
             htmlFor="file-upload"
             className={cn(
-                "group p-5 w-[50rem] h-64 flex flex-col gap-2.5 justify-center items-center bg-card/60 text-sm text-muted-foreground border border-border rounded-lg transition-all cursor-pointer",
+                "group p-5 w-full h-64 flex flex-col gap-2.5 justify-center items-center bg-card/60 text-sm text-muted-foreground border border-border rounded-lg transition-all cursor-pointer",
                 isDragging && "border-primary bg-primary/10 opacity-70",
                 isLoading && "opacity-70 cursor-wait"
             )}
@@ -174,10 +174,10 @@ const Dropzone = ({
                     </span>
                     <GetSaveTutorial />
                     <input
+                        id="file-upload"
+                        className="hidden"
                         type="file"
                         accept=".zip"
-                        className="hidden"
-                        id="file-upload"
                         onChange={(event: ChangeEvent<HTMLInputElement>) =>
                             onFileChange(event.target.files)
                         }
@@ -197,7 +197,7 @@ const SaveDataDisplay = ({
 }): ReactElement => {
     console.log({ saveData });
     return (
-        <div className="w-[50rem] p-5 bg-card/60 border border-border rounded-lg">
+        <div className="w-full p-5 bg-card/60 border border-border rounded-lg">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-semibold text-green-500">
                     Save File Uploaded!
