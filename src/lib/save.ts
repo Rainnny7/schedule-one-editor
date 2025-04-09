@@ -9,12 +9,10 @@ const SAVE_FILES: Record<string, string> = {
 export async function processSaveFile(file: File): Promise<GameSaveData> {
     // Validate file type
     if (
-        file.type !== "application/x-zip-compressed" ||
+        (file.type !== "application/x-zip-compressed" && 
+         file.type !== "application/zip") ||
         !file.name.endsWith(".zip")
     ) {
-        console.debug("Invalid file type:", file.type, file.name);
-        throw new Error("Please upload a zip file");
-    }
     // Read the zip file
     const zip = new JSZip();
     const zipContents = await zip.loadAsync(file);
