@@ -85,10 +85,7 @@ const GeneralTab = ({
                     <Switch
                         defaultChecked={data.metadata.PlayTutorial}
                         onCheckedChange={(checked: boolean) =>
-                            handleSwitchChange(
-                                "metadata.PlayTutorial",
-                                checked
-                            )
+                            handleSwitchChange("metadata.PlayTutorial", checked)
                         }
                     />
                 </DataField>
