@@ -2,6 +2,9 @@
     <img src="public/media/logo.png" alt="Schedule One Editor Logo" width="96"/>
 </div>
 
+> [!NOTE]
+> I will be completing this one I have time to do so, getting some other projects/work out of the way first 🙏🏻🩷
+
 # Schedule One Editor 🌿
 
 A modern web-based save editor for the Schedule I game, built with 💚, Next.js and React.
